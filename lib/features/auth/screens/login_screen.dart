@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_profile_app/core/common/phone_textfield.dart';
+import 'package:routemaster/routemaster.dart';
 import '../../../core/common/button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,7 +12,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
-
+  void navigateTONotRegistered(BuildContext context) {
+    Routemaster.of(context).push('/not_registered');
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                PhoneTextField(),
+                const PhoneTextField(),
                 const SizedBox(
                   height: 25,
                 ),
@@ -41,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const Text("Not registered?"),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => navigateTONotRegistered(context),
                       child: const Text(
                         "Register",
                         style: TextStyle(decoration: TextDecoration.underline,color: Colors.blue),
